@@ -1,0 +1,3 @@
+fastapi[standard]~=0.112.2
+./NorenRestApi-0.0.30-py2.py3-none-any.whl
+pyotp~=2.9.0
