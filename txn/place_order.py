@@ -17,7 +17,7 @@ def place_order(ltp, call: bool):
         'tsym': get_option_sym_from_strike(ltp, False if call else True),
         'prc': option_ltp,
     })
-    qty = (wallet.get_margin.m // required_margin) * 15
+    qty = (wallet.get_margin.m // required_margin) * 75
 
     print(f"Qty: {qty}")
 
@@ -26,7 +26,7 @@ def place_order(ltp, call: bool):
             res = finvasia.place_order(
                 buy_or_sell='S',
                 product_type="M", exchange="NFO", tradingsymbol=get_option_sym_from_strike(ltp, False),
-                quantity= 450, price_type=PriceType.Market, retention='IOC', remarks='profit', discloseqty=0,
+                quantity= 450, price_type=PriceType.Market, retention='DAY', remarks='call-sell', discloseqty=0,
             )
 
             print(res)
@@ -35,7 +35,7 @@ def place_order(ltp, call: bool):
             res = finvasia.place_order(
                 buy_or_sell='S',
                 product_type="M", exchange="NFO", tradingsymbol=get_option_sym_from_strike(ltp, True),
-                quantity= 450, price_type=PriceType.Market, retention='IOC', remarks='profit', discloseqty=0,
+                quantity= 450, price_type=PriceType.Market, retention='DAY', remarks='put-sell', discloseqty=0,
             )
 
             print(res)
@@ -47,7 +47,7 @@ def place_order(ltp, call: bool):
             res = finvasia.place_order(
                 buy_or_sell='S',
                 product_type="M", exchange="NFO", tradingsymbol=get_option_sym_from_strike(ltp, False),
-                quantity=qty, price_type=PriceType.Market, retention='IOC', remarks='profit', discloseqty=0,
+                quantity=qty, price_type=PriceType.Market, retention='DAY', remarks='call-sell', discloseqty=0,
             )
 
             print(res)
@@ -56,7 +56,7 @@ def place_order(ltp, call: bool):
             res = finvasia.place_order(
                 buy_or_sell='S',
                 product_type="M", exchange="NFO", tradingsymbol=get_option_sym_from_strike(ltp, True),
-                quantity=qty, price_type=PriceType.Market, retention='IOC', remarks='profit', discloseqty=0,
+                quantity=qty, price_type=PriceType.Market, retention='DAY', remarks='put-sell', discloseqty=0,
             )
 
             print(res)

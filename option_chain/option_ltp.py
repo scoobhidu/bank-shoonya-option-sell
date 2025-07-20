@@ -2,7 +2,7 @@ from login.init import finvasia
 from option_chain.oc_data import get_option_token_from_strike
 
 def get_nifty_price():
-    res = finvasia.get_quotes(exchange="NSE", token="26009")
+    res = finvasia.get_quotes(exchange="NSE", token="26000")
     print(res)
 
     return res['lp']

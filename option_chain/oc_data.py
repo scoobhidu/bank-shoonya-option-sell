@@ -4,8 +4,8 @@ oc_call = {}
 oc_put = {}
 
 def init_oc():
-    data = finvasia.get_quotes(exchange="NSE", token="26009")
-    ret = finvasia.get_option_chain(exchange="NFO", tradingsymbol="BANKNIFTY27NOV24P50300", count=40, strikeprice=data['lp'])
+    data = finvasia.get_quotes(exchange="NSE", token="26000")
+    ret = finvasia.get_option_chain(exchange="NFO", tradingsymbol="NIFTY24JUL25P25000", count=40, strikeprice=data['lp'])
 
     print(ret)
 

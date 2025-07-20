@@ -11,7 +11,7 @@ def squareoff():
         for position in ret:
             if position['netqty'] == '0':
                 pass
-            elif "BANKNIFTY" in position['tsym']:
+            elif "NIFTY" in position['tsym']:
                 qty = int(position['netqty'])
                 while qty > 450:
                     finvasia.place_order(buy_or_sell="B", product_type=position['prd'], exchange=position['exch'],
