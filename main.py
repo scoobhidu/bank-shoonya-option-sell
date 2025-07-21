@@ -43,6 +43,20 @@ async def put(req: Request):
 
     return {"message": f"action -- sell"}
 
+@app.post("/decide")
+async def call(req: Request):
+    txn.square_off.squareoff()
+    ltp = get_nifty_price()
+    if ltp is not int:
+        ltp = int(ltp[:5])
+
+    if (await req.json()['action']) == "B":
+        place_order(ltp, True)
+        return {"message": f"action -- buy"}
+    else:
+        place_order(ltp, False)
+        return {"message": f"action -- sell"}
+
 
 @app.get("/square_off")
 async def square_off():
