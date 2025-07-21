@@ -59,6 +59,7 @@ async def call(req: Request):
 
 
 @app.get("/square_off")
+@app.post("/square_off")
 async def square_off():
     squareoff()
     return {"message": f"squared off open NIFTY* positions"}
